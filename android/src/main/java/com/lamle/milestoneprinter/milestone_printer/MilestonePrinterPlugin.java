@@ -201,7 +201,7 @@ public class MilestonePrinterPlugin implements MethodCallHandler, PrinterObserve
           }
           break;
         case CommonEnum.CONNECT_STATE_INTERRUPTED:
-          if (printerInterface != null && printerInterface.getConfigObject() != null) {
+          if (printerInterface != null) {
             connectedPrinters.put(printerInterface.getmName(), false);
             onConnectInterrupted(printerInterface.getmName());
           }
