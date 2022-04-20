@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - milestone_printer (0.0.2):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - milestone_printer (from `.symlinks/plugins/milestone_printer/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  milestone_printer:
+    :path: ".symlinks/plugins/milestone_printer/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  milestone_printer: 2572c7aef09ce9abecca7f27f21047c67fe4d705
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.11.3
