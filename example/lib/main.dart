@@ -45,6 +45,14 @@ class _MyAppState extends State<MyApp> {
               child: const Text('Connect'),
             ),
             ElevatedButton(
+              onPressed: () => disconnect(),
+              child: const Text('Disconnect'),
+            ),
+            ElevatedButton(
+              onPressed: () => dispose(),
+              child: const Text('Dispose'),
+            ),
+            ElevatedButton(
               onPressed: () => cut(),
               child: const Text('Cut'),
             ),
@@ -58,12 +66,20 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
+  void disconnect() async {
+    MilestonePrinter.disconnect(['192.168.1.82', '192.168.1.81']);
+  }
+
+  void dispose() async {
+    MilestonePrinter.dispose();
+  }
+
   void connect() async {
-    MilestonePrinter.connect(['192.168.1.187', '192.168.1.188']);
+    MilestonePrinter.connect(['192.168.1.82', '192.168.1.81']);
   }
 
   void cut() async {
-    MilestonePrinter.cut(['192.168.1.187', '192.168.1.188']);
+    MilestonePrinter.cut(['192.168.1.82', '192.168.1.81']);
   }
 
   void startPrint() async {
@@ -734,6 +750,6 @@ class _MyAppState extends State<MyApp> {
       86,
       48
     ];
-    MilestonePrinter.print(['192.168.1.187', '192.168.1.188'], bytes);
+    MilestonePrinter.print(['192.168.1.82', '192.168.1.81'], bytes);
   }
 }
