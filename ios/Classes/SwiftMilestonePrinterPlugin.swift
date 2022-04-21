@@ -59,10 +59,18 @@ class PrinterHandler: NSObject, FlutterPlugin {
     case "printer":
       let ips: [String] = (args?["ips"] as? [String]) ?? []
       let data: [Int] = (args?["bytes"] as? [Int]) ?? []
+      var bytes: [UInt8] = []
+      for i in 0..<data.count {
+        bytes.append(UInt8(data[i]))
+      }
       for ip in ips {
-        print(ip: ip,bytes: data);
+        print(ip: ip,bytes: bytes)
       }
       break;
+    case "isConnected":
+      let ip: String = (args?["ip"] as? String) ?? ""
+      result(printers[ip]?.isOpen)
+      break
     case "dispose":
       dispose()
       break
@@ -119,7 +127,7 @@ class PrinterHandler: NSObject, FlutterPlugin {
     printers[ip]?.writeAsync(cmd.getCmd())
   }
   
-  func print(ip: String, bytes: [Int]) {
+  func print(ip: String, bytes: [UInt8]) {
     if (printers[ip] == nil) {
       return
     }
